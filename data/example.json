@@ -1,0 +1,69 @@
+[
+    {
+        "products": [
+            {
+                "_id": "D001",
+                "name": "Samsung 870 EVO 512GB",
+                "price": 35,
+                "instock": 47
+            },
+            {
+                "_id": "D001",
+                "name": "Western Digital Blue 1TB",
+                "price": 50,
+                "instock": 63
+            }
+        ]
+    },
+    {
+        "product_details": [
+            {
+                "product_id": "D001",
+                "price_unit": "dollars",
+                "type": "SSD",
+                "storage": 512,
+                "storage_unit": "GB",
+                "manufacturer": "Samsung",
+                "read_speed": 560,
+                "read_speed_unit": "MB/sec",
+                "write_speed": 530,
+                "write_speed_unit": "MB/sec",
+                "size": 2.5,
+                "size_unit": "inches"
+            },
+            {
+                "product_id": "D002",
+                "price_unit": "dollars",
+                "type": "HDD",
+                "storage": 1,
+                "storage_unit": "TB",
+                "manufacturer": "Western Digital",
+                "read_speed": 320,
+                "read_speed_unit": "MB/sec",
+                "write_speed": 320,
+                "write_speed_unit": "MB/sec",
+                "size": 3.5,
+                "size_unit": "inches"
+            }
+        ]
+    },
+    {
+        "sales": [
+            {
+                "order_id": "O001",
+                "product_id": "D001",
+                "quantity": 2,
+                "revenue": 70,
+                "date":"2023-11-16 22:55:00"
+            },
+            {
+                "order_id": "O002",
+                "product_id": "D002",
+                "quantity": 4,
+                "revenue": 200,
+                "date":"28/10/2023T13:35"
+            }
+        ]
+    }
+]
+
