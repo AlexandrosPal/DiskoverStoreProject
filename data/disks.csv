@@ -1,0 +1,16 @@
+_id,name,price,type,storage,storage_unit,manufacturer,read_speed,read_speed_unit,write_speed,write_speed_unit,size,size_unit
+D031,WD Blue 1TB HDD,40,HDD,1,TB,Western Digital,7200,rpm,7200,rpm,3.5,inches
+D816,Samsung 870 Evo SSD 500GB,45,SSD,500,GB,Samsung,560,MB/s,530,MB/s,2.5,inches
+D812,Samsung 870 Evo SSD 1TB,75,SSD,1,TB,Samsung,560,MB/s,530,MB/s,2.5,inches
+D813,Samsung 870 Evo SSD 2TB,140,SSD,2,TB,Samsung,560,MB/s,530,MB/s,2.5,inches
+D978,Samsung 870 Evo SSD 4TBGB,274,SSD,4,TB,Samsung,560,MB/s,530,MB/s,2.5,inches
+D326,Samsung 990 PRO SSD 1TB M.2 NVMe PCI Express 4.0,105,NVMe,1,TB,Samsung,7450,/MB/s,600,MB/s,M.2,-
+D213,Seagate Barracuda 2TB HDD,52,HDD,2,TB,Seagate,7200,rpm,7200,rpm,3.5,inches
+D884,Seagate Ironwolf NAS 4TB HDD,102,HDD,4,TB,Seagate,5400,rpm,5400,rpm,3.5,inches
+D010,Kingston A400 SSD 240GB,23,SSD,240,GB,Kingston,500,MB/s,350,MB/s,2.5,inches,
+D208,Toshiba P300 1TB HDD,38,HDD,1,TB,Toshiba,7200,rpm,7200,rpm,3.5,inches
+D177,WD Black SN850X With Heatsink SSD 1TB M.2 NVMe PCI Express 4.0,98,NVMe,1,TB,Western Digital,7300,MB/s,6300,MB/s,M.2,-
+D668,WD Black SN850X With Heatsink SSD 2TB M.2 NVMe PCI Express 4.0,158,NVMe,2,TB,Western Digital,7300,MB/s,6300,MB/s,M.2,-
+D548,WD Gold 8TB HDD,216,HDD,8,TB,Western Digital,7200,rpm,7200,rpm,3.5,inches
+D112,WD Red NAS 4TB HDD,100,HDD,4,TB,Western Digital,5400,rpm,5400,rpm,3.5,inches
+D711,Kioxia Exceria SSD 480GB,28,SSD,480,GB,Kioxia,555,MB/s,540,MB/s,2.5,inches
