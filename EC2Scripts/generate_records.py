@@ -3,7 +3,7 @@ from datetime import datetime as dt
 import sys
 
 # Files
-sys.path.append("\FSProject")
+sys.path.append("\DiskoverProject")
 from MongoDB.BuildScript.build_db_script import DiskoverDB
 
 

@@ -2,7 +2,7 @@
 import sys
 
 # Files
-sys.path.append("\FSProject\MongoDB")
+sys.path.append("\DiskoverProject\MongoDB")
 from Schema.sales_coll_validator import sales_validator
 from connection_script import client
 
@@ -18,3 +18,6 @@ DiskoverDB = client.DiskoverDB
 
 # # Create products collection
 # products_coll = DiskoverDB.create_collection("products")
+
+# # Create products collection
+# product_details_coll = DiskoverDB.create_collection("product_details")
