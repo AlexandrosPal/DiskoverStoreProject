@@ -12,7 +12,7 @@ def generate(object):
     if object.startswith("D") == True:
         price = DiskoverDB.products.find({"_id": object}, {"_id": 0, "price": 1})
         
-        return list(price)[0]["price"]
+        return int(list(price)[0]["price"])
 
     match object:
         # For order
@@ -23,7 +23,7 @@ def generate(object):
                 orders.append(order["order_id"])
 
             while True:
-                order = f"O{randint(0, 4):03d}"
+                order = f"O{randint(0, 999):03d}"
                 if order in orders:
                     pass
                 else:
@@ -42,41 +42,20 @@ def generate(object):
         case "quantity":
             return randint(1, 10)
 
+def get_records():
+    sales = []
+    for _ in range(2):
+        sale = {
+            "order_id": generate("order"),
+            "product_id": generate("product"),
+            "quantity": generate("quantity")
+        }
 
-sale = {
-    "order_id": generate("order"),
-    "product_id": generate("product"),
-    "quantity": generate("quantity")
-}
+        sale["price"] = generate(sale["product_id"])
+        sale["revenue"] = sale["quantity"] * sale["price"]
+        sale["date"] = dt.now()
+        sales.append(sale)
 
-sale["price"] = generate(sale["product_id"])
-sale["revenue"] = sale["quantity"] * sale["price"]
-sale["date"] = dt.now()
+    return sales
 
-
-result = DiskoverDB.sales.insert_one(sale)
-print(result)
-
-
-
-
-
-
-
-# result = DiskoverDB.products.insert_many(
-#     [
-#         {
-#             "_id": "D001",
-#             "name": "Samsung 870 EVO 512GB",
-#             "price": 35,
-#             "instock": 47
-#         },
-#         {
-#             "_id": "D002",
-#             "name": "Western Digital Blue 1TB",
-#             "price": 50,
-#             "instock": 63
-#         }
-#     ]
-# )
-# print(result)
+# result = DiskoverDB.sales.insert_many(get_records())

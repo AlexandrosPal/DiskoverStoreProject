@@ -51,4 +51,4 @@ def fill_product_details():
 
 
 # fill_products()
-fill_product_details()
+# fill_product_details()
