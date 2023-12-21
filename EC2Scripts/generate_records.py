@@ -3,7 +3,7 @@ from datetime import datetime as dt
 import sys
 
 # Files
-sys.path.append("\DiskoverProject")
+sys.path.append("/home/ec2-user/DiskoverProject")
 from MongoDB.BuildScript.build_db_script import DiskoverDB
 
 
@@ -14,33 +14,32 @@ def generate(object):
         
         return int(list(price)[0]["price"])
 
-    match object:
-        # For order
-        case "order":
-            db_orders = list(DiskoverDB.sales.find({}, {"_id": 0, "order_id": 1}))
-            orders = []
-            for order in db_orders:
-                orders.append(order["order_id"])
+    # For order
+    if object == "order":
+        db_orders = list(DiskoverDB.sales.find({}, {"_id": 0, "order_id": 1}))
+        orders = []
+        for order in db_orders:
+            orders.append(order["order_id"])
 
-            while True:
-                order = f"O{randint(0, 999):03d}"
-                if order in orders:
-                    pass
-                else:
-                    return order
+        while True:
+            order = f"O{randint(0, 999):03d}"
+            if order in orders:
+                pass
+            else:
+                return order
 
-        # For product
-        case "product":
-            db_products = list(DiskoverDB.products.find({}, {"_id": 1}))
-            products = []
-            for product in db_products:
-                products.append(product["_id"])
+    # For product
+    elif object == "product":
+        db_products = list(DiskoverDB.products.find({}, {"_id": 1}))
+        products = []
+        for product in db_products:
+            products.append(product["_id"])
 
-            return choice(products)
+        return choice(products)
         
-        # For quantity
-        case "quantity":
-            return randint(1, 10)
+    # For quantity
+    elif object == "quantity":
+        return randint(1, 10)
 
 def get_records():
     sales = []

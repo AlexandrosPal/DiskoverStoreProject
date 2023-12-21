@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-sys.path.append("\DiskoverProject")
+sys.path.append("/home/ec2-user/DiskoverProject/")
 from MongoDB.BuildScript.build_db_script import DiskoverDB
 
 
