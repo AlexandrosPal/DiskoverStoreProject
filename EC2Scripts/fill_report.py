@@ -13,7 +13,7 @@ file_dateTo = dt.now().strftime('%Y%m%d')
 fileName = f'report_{file_dateFrom}-{file_dateTo}.pdf'
 
 # Files
-sys.path.append("\DiskoverProject")
+sys.path.append("/home/ec2-user/DiskoverProject/")
 document = pdf.Document('assets/report_blueprint.pdf')
 stamp_most_sold = pdf.ImageStamp('assets/most_sold.png')
 stamp_most_orders = pdf.ImageStamp('assets/most_orders.png')
@@ -58,6 +58,9 @@ page.add_stamp(stamp_most_orders)
 page.add_stamp(stamp_revenues_generated)
 page.add_stamp(stamp_most_busy_dates)
 page.add_stamp(dateField)
+
+# Flatten page
+page.flatten()
 
 # Save PDF
 document.save(f'assets/{fileName}')

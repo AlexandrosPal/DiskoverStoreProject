@@ -2,7 +2,7 @@
 import sys
 
 # Files
-sys.path.append("\DiskoverProject\MongoDB")
+sys.path.append("/home/ec2-user/DiskoverProject/MongoDB")
 from Schema.sales_coll_validator import sales_validator
 from connection_script import client
 

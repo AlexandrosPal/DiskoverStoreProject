@@ -5,12 +5,12 @@ from random import choice, randint
 import csv
 
 # Files
-sys.path.append("\DiskoverProject")
+sys.path.append("/home/ec2-user/DiskoverProject")
 from MongoDB.BuildScript.build_db_script import DiskoverDB
 
 
 def fill_products():
-    with open("data\disks.csv", "r") as data:
+    with open("/home/ec2-user/DiskoverProject/data/disks.csv", "r") as data:
         disks = csv.reader(data)
         next(disks)
 
@@ -24,9 +24,8 @@ def fill_products():
             result = DiskoverDB.products.insert_one(product)
             print(result)
 
-
 def fill_product_details():
-    with open("data\disks.csv", "r") as data:
+    with open("/home/ec2-user/DiskoverProject/data/disks.csv", "r") as data:
         disks = csv.reader(data)
         next(disks)
 
@@ -47,7 +46,6 @@ def fill_product_details():
             }
             result = DiskoverDB.product_details.insert_one(product)
             print(result)
-
 
 
 # fill_products()

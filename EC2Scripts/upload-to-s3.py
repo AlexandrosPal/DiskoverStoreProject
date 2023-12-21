@@ -1,6 +1,7 @@
 import logging
 import boto3
 from botocore.exceptions import ClientError
+import sys
 import os
 
 
@@ -11,8 +12,12 @@ def upload_file(file_name, bucket, object_name=None):
 
     s3_client = boto3.client('s3')
     try:
-        response = s3_client.upload_file(file_name, bucket, object_name)
+        response = s3_client.upload_file(file_name, bucket, object_name, ExtraArgs={'ContentType': 'application/pdf'})
     except ClientError as e:
         logging.error(e)
         return False
     return True
+
+
+sys.path.append("/home/ec2-user/DiskoverProject/")
+response = upload_file('assets/report_20231211-20231218.pdf', 'diskoveryanalytics.live')
