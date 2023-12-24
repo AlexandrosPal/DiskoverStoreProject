@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-sys.path.append("/home/ec2-user/DiskoverProject/")
+sys.path.append("/home/ec2-user/DiskoverProject")
 from MongoDB.BuildScript.build_db_script import DiskoverDB
 
 
@@ -73,7 +73,7 @@ def revenue_generated():
 def most_busy_dates():
      dates = []
      revenues = []
-     result = DiskoverDB.sales.aggregate([{'$group': {'_id': {'$dateToString': {'format': "%Y-%m-%d", 'date': '$date'}}, 'revenue': {'$sum': '$revenue'}}}, {'$sort': {'revenue': 1}}, {'$limit': 10}])
+     result = DiskoverDB.sales.aggregate([{'$group': {'_id': {'$dateToString': {'format': "%Y-%m-%d", 'date': {'$toDate': '$date'}}}, 'revenue': {'$sum': '$revenue'}}}, {'$sort': {'revenue': 1}}, {'$limit': 10}])
      for disk in result:
           dates.append(disk['_id'])
           revenues.append(disk['revenue'])
@@ -92,10 +92,10 @@ def most_busy_dates():
      plt.savefig('assets/most_busy_dates.png')
 
 
-def main():
+def generate_plots():
      most_sold()
      most_orders()
      revenue_generated()
      most_busy_dates()
 
-main()
+generate_plots()

@@ -43,7 +43,7 @@ def generate(object):
 
 def get_records():
     sales = []
-    for _ in range(2):
+    for _ in range(randint(20, 50)):
         sale = {
             "order_id": generate("order"),
             "product_id": generate("product"),
@@ -56,5 +56,3 @@ def get_records():
         sales.append(sale)
 
     return sales
-
-# result = DiskoverDB.sales.insert_many(get_records())
