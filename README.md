@@ -3,7 +3,7 @@ Diskovery Webstore Documentation –
 Sales Analysis Integration
 
 
-# Περιεχόμενα
+# Contents
 
 [1 - The Concept](#_toc151231282)
 
