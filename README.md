@@ -45,6 +45,8 @@ The main applications used are some basic and intermediate AWS services along wi
 
 The main component is the EC2 instance, which triggers periodically two scripts for the whole project to come to life.
 
+![image](https://github.com/AlexandrosPal/DiskoverStoreProject/assets/103060739/59d8f924-38c7-4f83-83b0-6bc493687136)
+
 The life cycle of the application compiles around these scripts. The first one aims to populate the database with data regarding the sales and the restocks from the suppliers, while the second one is to retrieve all the data from the database, analyze it, upload a report to a bucket and send a notification regarding the process.
 
 ## <a name="_toc151231284"></a>3 - The Database
