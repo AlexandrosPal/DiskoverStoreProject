@@ -12,7 +12,7 @@ DiskoverDB = client.DiskoverDB
 
 
 # # Create sales collection
-# parameters = {"validator": sales_validator, "capped": True, "size": 20000, "max": 20}
+# parameters = {"validator": sales_validator, "capped": True, "size": 20000, "max": 350}
 # sales_coll = DiskoverDB.create_collection("sales", **parameters)
 
 

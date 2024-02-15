@@ -30,24 +30,23 @@ def generate(object):
 
     # For product
     elif object == "product":
-        db_products = list(DiskoverDB.products.find({}, {"_id": 1}))
+        db_products = list(DiskoverDB.products.find({"instock": {"$gt": 0}}, {"_id": 1}))
         products = []
         for product in db_products:
             products.append(product["_id"])
 
         return choice(products)
-        
-    # For quantity
-    elif object == "quantity":
-        return randint(1, 10)
 
 def get_records():
     sales = []
-    for _ in range(randint(20, 50)):
+    for _ in range(randint(20, 45)):
+        product_id = generate("product")
+        instock = list(DiskoverDB.products.find({"_id": product_id}))[0]["instock"]
+        quantity = randint(1, 7)
         sale = {
             "order_id": generate("order"),
-            "product_id": generate("product"),
-            "quantity": generate("quantity")
+            "product_id": product_id,
+            "quantity": quantity
         }
 
         sale["price"] = generate(sale["product_id"])
@@ -55,4 +54,8 @@ def get_records():
         sale["date"] = dt.now()
         sales.append(sale)
 
+        result = DiskoverDB.products.update_one({"_id": product_id}, {"$inc": {"instock": -(quantity)}})
+
     return sales
+
+get_records()
