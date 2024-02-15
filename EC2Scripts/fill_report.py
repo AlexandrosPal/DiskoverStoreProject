@@ -3,21 +3,25 @@ from reportlab.pdfgen import canvas
 from datetime import datetime as dt
 from datetime import timedelta
 
-def add_image_to_existing_pdf():
+
+
+def fill_report(bucket):
     dateFrom = (dt.now() - timedelta(days=7)).strftime('%Y/%m/%d')
     dateTo = dt.now().strftime('%Y/%m/%d')
     dateString = f'{dateFrom} - {dateTo}'
 
     file_dateFrom = (dt.now() - timedelta(days=7)).strftime('%Y%m%d')
     file_dateTo = dt.now().strftime('%Y%m%d')
-    fileName = f'report_{file_dateFrom}-{file_dateTo}.pdf'
+    if bucket == 'archive':
+        fileName = f'report_{file_dateFrom}-{file_dateTo}.pdf'
+    else:
+        fileName = "Sales_Report.pdf"
+    pdf = canvas.Canvas(f'/home/ec2-user/DiskoverProject/assets/{fileName}', pagesize=landscape(A4))
 
-    pdf = canvas.Canvas(f'/DiskoverProject/assets/{fileName}', pagesize=landscape(A4))
-
-    tl_image = '/DiskoverProject/assets/most_sold.png'
-    tr_image = '/DiskoverProject/assets/most_orders.png'
-    bl_image = '/DiskoverProject/assets/revenues_generated.png'
-    br_image = '/DiskoverProject/assets/most_busy_dates.png'
+    tl_image = '/home/ec2-user/DiskoverProject/assets/most_sold.png'
+    tr_image = '/home/ec2-user/DiskoverProject/assets/most_orders.png'
+    bl_image = '/home/ec2-user/DiskoverProject/assets/revenues_generated.png'
+    br_image = '/home/ec2-user/DiskoverProject/assets/most_busy_dates.png'
 
     image_width = 270
     image_height = 200
@@ -50,6 +54,7 @@ def add_image_to_existing_pdf():
 
 
     pdf.save()
-        
 
-add_image_to_existing_pdf()
+    return fileName
+
+print(fill_report('live'))

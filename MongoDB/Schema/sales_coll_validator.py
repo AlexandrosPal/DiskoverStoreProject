@@ -29,7 +29,7 @@ sales_validator = {
                 # Example: 250
             },
             "date": {
-                "bsonType": "date",
+                "bsonType": "string",
                 "description": "The date in which the sale/order was made",
                 # Example: 2023-11-16 22:55:00
             },

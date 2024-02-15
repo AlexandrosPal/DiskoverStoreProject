@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import os
 import numpy as np
 import sys
 
@@ -22,11 +23,12 @@ def most_sold():
      ax.grid(which='major', color='#DDDDDD', linewidth=0.8)
      ax.set_axisbelow(True)
      ax.minorticks_on()
-     plt.xticks(np.arange(min(quantity), max(quantity)+1, 2))
+     plt.xticks(np.arange(0, max(quantity)+1, 25))
+     ax.bar_label(ax.containers[0], label_type='center', color='white')
 
      plt.tight_layout()
      plt.draw()
-     plt.savefig('assets\most_sold.png')
+     plt.savefig('/home/ec2-user/DiskoverProject/assets/most_sold.png')
 
 def most_orders():
      disks = []
@@ -44,11 +46,12 @@ def most_orders():
      ax.grid(which='major', color='#DDDDDD', linewidth=0.8)
      ax.set_axisbelow(True)
      ax.minorticks_on()
-     plt.xticks(np.arange(min(orders), max(orders)+1, 1))
+     plt.xticks(np.arange(0, max(orders)+1, 5))
+     ax.bar_label(ax.containers[0], label_type='center', color='white')
 
      plt.tight_layout()
      plt.draw()
-     plt.savefig('assets\most_orders.png')
+     plt.savefig('/home/ec2-user/DiskoverProject/assets/most_orders.png')
 
 def revenue_generated():
      disks = []
@@ -65,10 +68,11 @@ def revenue_generated():
      ax.set_xlabel('Revenues')
      ax.grid(which='major', color='#DDDDDD', linewidth=0.8)
      ax.set_axisbelow(True)
+     ax.bar_label(ax.containers[0], label_type='center', color='white')
 
      plt.tight_layout()
      plt.draw()
-     plt.savefig('assets/revenues_generated.png')
+     plt.savefig('/home/ec2-user/DiskoverProject/assets/revenues_generated.png')
 
 def most_busy_dates():
      dates = []
@@ -89,7 +93,7 @@ def most_busy_dates():
 
      plt.tight_layout()
      plt.draw()
-     plt.savefig('assets/most_busy_dates.png')
+     plt.savefig('/home/ec2-user/DiskoverProject/assets/most_busy_dates.png')
 
 
 def generate_plots():
@@ -97,5 +101,3 @@ def generate_plots():
      most_orders()
      revenue_generated()
      most_busy_dates()
-
-generate_plots()
