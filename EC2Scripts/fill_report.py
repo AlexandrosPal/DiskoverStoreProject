@@ -41,15 +41,15 @@ def fill_report(bucket):
     pdf.drawImage(tl_image, x_indent, 480-image_height, width=image_width, height=image_height)
 
     # Top right
-    pdf.drawString(450, 490, 'Most sold products:')
+    pdf.drawString(450, 490, 'Most orders:')
     pdf.drawImage(tr_image, 450, 480-image_height, width=image_width, height=image_height)
 
     # Bottom left
-    pdf.drawString(x_indent, 250, 'Most sold products:')
+    pdf.drawString(x_indent, 250, 'Most revenue generated:')
     pdf.drawImage(bl_image, x_indent, 240-image_height, width=image_width, height=image_height)
 
     # Bottom right
-    pdf.drawString(450, 250, 'Most sold products:')
+    pdf.drawString(450, 250, 'Most busy dates:')
     pdf.drawImage(br_image, 450, 240-image_height, width=image_width, height=image_height)
 
 
