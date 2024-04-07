@@ -154,3 +154,9 @@ As the business grows and the demands for growth grow too, more analysis will be
 
 ## <a name="_toc151231292"></a>8 - The Notification System
 As part of the first script, there is a notification system that sends the status of the script regarding the outcome. If it is a successful the email will notify with “Lambda ran successfully”, but if something went wrong at either end, EC2 server, Lambda script, MongoDB collection, the notification will read “Lambda function failed due to …” plus the reason of the failure.
+
+
+## <a name="_toc151231292"></a>9 - The CI (Continues Integration)
+The implementation of features, changes, bugfixes etc. consists of performing the tasks outside the server instance. As security best practice the server should be accessed for everyday tasks.
+
+Thus, when merging changes towards the main branch, a GitHub Action has been setup in the “.github“ folder, where in case of a push in the main branch, an agent logs in to the server using ssh, navigates to the right folder and pulls the changes in order for them to take effect. The information about the ssh key, the host and the port are located inside GitHub Secrets for actions.
