@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
-sys.path.append(f'{str(Path('.').absolute())}/EC2Scripts')
+sys.path.append(f"{str(Path('.').absolute())}/EC2Scripts")
 
 from Utils import config, flow_logger, build_log_message
 
@@ -11,7 +11,7 @@ from .connection_script import client
 # Create new/Connect to a Database
 database = config.get('database', 'database.name')
 DiskoverDB = client[database]
-flow_logger.debug(build_log_message(f'Connected to database: {database}'))
+flow_logger.debug(build_log_message(f"Connected to database: {database}"))
 
 
 # # Create sales collection

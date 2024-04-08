@@ -1,7 +1,7 @@
 import os
 import sys
 from pathlib import Path
-sys.path.append(f'{str(Path('.').absolute())}/EC2Scripts')
+sys.path.append(f"{str(Path('.').absolute())}/EC2Scripts")
 
 import boto3
 from botocore.exceptions import ClientError
@@ -17,7 +17,7 @@ def upload_file(file_name, bucket, object_name=None):
     s3_client = boto3.client('s3')
     try:
         response = s3_client.upload_file(file_name, bucket, object_name, ExtraArgs={'ContentType': 'application/pdf'})
-        flow_logger.info(build_log_message(f'Uploaded file: {file_name}, to bucket: {bucket}'))
+        flow_logger.info(build_log_message(f"Uploaded file: {file_name}, to bucket: {bucket}"))
     except ClientError as e:
         flow_logger.error(build_log_error(e))
         return False
