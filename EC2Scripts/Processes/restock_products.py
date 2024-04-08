@@ -32,7 +32,7 @@ def restock_products():
                 min, max = 45, 50 
 
             restock_amount = randint(min, max)
-            flow_logger.info(build_log_message(f"Product with id: {product['_id']} restocked {restock_amount} items to {product["instock"] + restock_amount}"))
+            flow_logger.info(build_log_message(f"Product with id: {product['_id']} restocked {restock_amount} items to {product['instock'] + restock_amount}"))
             result = DiskoverDB.products.update_one({"_id": product['_id']}, {"$inc": {"instock": restock_amount}})
 
         return result
