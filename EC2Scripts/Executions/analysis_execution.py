@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
-sys.path.append(f'{str(Path('.').absolute())}')
-sys.path.append(f'{str(Path('.').absolute())}/EC2Scripts')
+sys.path.append(f"{str(Path('.').absolute())}")
+sys.path.append(f"{str(Path('.').absolute())}/EC2Scripts")
 
 import os
 from dotenv import load_dotenv, find_dotenv
@@ -37,10 +37,10 @@ try:
     generate_plots()
     fileName = fill_report(main_bucket)
     empty_bucket(main_bucket)
-    upload_file(f'assets/{fileName}', main_bucket)
+    upload_file(f"assets/{fileName}", main_bucket)
 
     fileName = fill_report(archive_bucket)
-    upload_file(f'assets/{fileName}', archive_bucket)
+    upload_file(f"assets/{fileName}", archive_bucket)
     send_sns(sns_arn, success_message)
 
 except Exception as e:

@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
-sys.path.append(f'{str(Path('.').absolute())}/EC2Scripts')
+sys.path.append(f"{str(Path('.').absolute())}/EC2Scripts")
 
 from AWS import send_sns
 from Processes import restock_products

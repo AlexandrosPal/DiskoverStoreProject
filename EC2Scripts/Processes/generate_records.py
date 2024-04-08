@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
-sys.path.append(f'{str(Path('.').absolute())}/EC2Scripts')
+sys.path.append(f"{str(Path('.').absolute())}/EC2Scripts")
 
 from random import choice, randint
 from datetime import datetime as dt
@@ -59,7 +59,7 @@ def get_records():
 
             result = DiskoverDB.products.update_one({"_id": product_id}, {"$inc": {"instock": -(quantity)}})
 
-        flow_logger.info(build_log_message(f'Records generated: {sales}'))
+        flow_logger.info(build_log_message(f"Records generated: {sales}"))
         return sales
     
     except Exception as e:

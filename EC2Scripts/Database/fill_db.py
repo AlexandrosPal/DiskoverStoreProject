@@ -6,7 +6,7 @@ import csv
 # Files
 from build_db_script import DiskoverDB
 
-base_path = f'{str(Path('.').absolute())}/data'
+base_path = f"{str(Path('.').absolute())}/data"
 def fill_products():
     with open(f"{base_path}/disks.csv", "r") as data:
         disks = csv.reader(data)

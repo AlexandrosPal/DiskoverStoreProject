@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
-sys.path.append(f'{str(Path('.').absolute())}')
+sys.path.append(f"{str(Path('.').absolute())}")
 
 import os
 from dotenv import load_dotenv, find_dotenv

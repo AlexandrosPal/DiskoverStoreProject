@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
-sys.path.append(f'{str(Path('.').absolute())}')
-sys.path.append(f'{str(Path('.').absolute())}/EC2Scripts')
+sys.path.append(f"{str(Path('.').absolute())}")
+sys.path.append(f"{str(Path('.').absolute())}/EC2Scripts")
 
 import os
 from dotenv import load_dotenv, find_dotenv
@@ -21,15 +21,15 @@ def fill_report(bucket):
     try:
         dateFrom = (dt.now() - timedelta(days=7)).strftime('%Y/%m/%d')
         dateTo = dt.now().strftime('%Y/%m/%d')
-        dateString = f'{dateFrom} - {dateTo}'
+        dateString = f"{dateFrom} - {dateTo}"
 
         file_dateFrom = (dt.now() - timedelta(days=7)).strftime('%Y%m%d')
         file_dateTo = dt.now().strftime('%Y%m%d')
         if bucket == 'archive':
-            fileName = f'report_{file_dateFrom}-{file_dateTo}.pdf'
+            fileName = f"report_{file_dateFrom}-{file_dateTo}.pdf"
         else:
             fileName = "Sales_Report.pdf"
-        pdf = canvas.Canvas(f'assets/{fileName}', pagesize=landscape(A4))
+        pdf = canvas.Canvas(f"assets/{fileName}", pagesize=landscape(A4))
 
         tl_image = 'assets/most_sold.png'
         tr_image = 'assets/most_orders.png'
