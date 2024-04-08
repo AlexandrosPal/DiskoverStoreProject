@@ -8,5 +8,5 @@ db_password = os.environ.get("MONGODB_PWD")
 
 
 # Connect to the MongoDB instance
-connectio_string = f"mongodb+srv://admin:{db_password}@main.oukdars.mongodb.net/?retryWrites=true&w=majority"
-client = MongoClient(connectio_string)
+connection_string = f"mongodb+srv://admin:{db_password}@main.oukdars.mongodb.net/?retryWrites=true&w=majority"
+client = MongoClient(connection_string)
