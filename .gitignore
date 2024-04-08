@@ -1,4 +1,6 @@
 # Project specific
+*.png
+*.pdf
 assets/*.png
 assets/report_[0-9]*
 
