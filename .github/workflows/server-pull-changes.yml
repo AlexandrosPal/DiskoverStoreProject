@@ -15,5 +15,5 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Pull changes on EC2
+      - name: Pull branch changes on EC2
         run: ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} -p ${{ secrets.EC2_SSH_PORT }} 'cd /home/ec2-user/DiskoverProject && git pull && python ./EC2Scripts/Utils/switch_env.py'
