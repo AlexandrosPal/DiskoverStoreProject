@@ -3,7 +3,7 @@ from datetime import datetime as dt
 from random import choice, randint
 import csv
 
-# Files
+
 from build_db_script import DiskoverDB
 
 base_path = f"{str(Path('.').absolute())}/data"
