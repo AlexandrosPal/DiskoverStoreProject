@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                sh 'git pull && python ./EC2Scripts/Utils/switch_env.py'
+                sh 'python ./EC2Scripts/Utils/switch_env.py'
             }
         }
         stage('Build') {
