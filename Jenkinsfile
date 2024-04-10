@@ -20,7 +20,9 @@ pipeline {
 
         stage('Execute') {
             steps {
-                sh 'python EC2Scripts/Executions/analysis_execution.py'
+                withAWS(credentials: 'AWS_KEYS') {
+                    sh 'python EC2Scripts/Executions/analysis_execution.py'
+                }
             }
         }
     }
