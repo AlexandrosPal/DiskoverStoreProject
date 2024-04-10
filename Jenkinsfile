@@ -4,14 +4,14 @@ pipeline {
        githubPush()
     }
     stages {
-        stage('Checkout') {
-            steps {
-                sh 'python ./EC2Scripts/Utils/switch_env.py'
-            }
-        }
         stage('Build') {
             steps {
                 sh 'pip install -r requirements.txt'
+            }
+        }
+        stage('Environment') {
+            steps {
+                sh 'python ./EC2Scripts/Utils/switch_env.py'
             }
         }
         stage('Execute') {
