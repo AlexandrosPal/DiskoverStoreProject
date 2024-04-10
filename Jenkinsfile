@@ -20,7 +20,7 @@ pipeline {
 
         stage('Execute') {
             steps {
-                withAWS(credentials: 'AWS_KEYS') {
+                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS_KEYS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     sh 'python EC2Scripts/Executions/analysis_execution.py'
                 }
             }
