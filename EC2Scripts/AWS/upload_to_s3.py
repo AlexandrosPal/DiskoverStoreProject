@@ -1,8 +1,8 @@
-import os
 import sys
 from pathlib import Path
 sys.path.append(f"{str(Path('.').absolute())}/EC2Scripts")
 
+import os
 import boto3
 from botocore.exceptions import ClientError
 
