@@ -8,6 +8,7 @@ pipeline {
     environment {
         env = 'prod'
         MONGODB_PWD = credentials('MONGODB_PWD')
+        AWS_DEFAULT_REGION = 'eu-central-1'
     }
 
     stages {
