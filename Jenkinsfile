@@ -12,12 +12,6 @@ pipeline {
     }
 
     stages {
-        stage('Setup') {
-            steps {
-                sh 'cd ~/home/ec2-user/DiskoverProject && git pull'
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'pip install -r requirements.txt'
