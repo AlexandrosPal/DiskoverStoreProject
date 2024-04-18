@@ -8,7 +8,7 @@ from Database import DiskoverDB
 from Utils import flow_logger, build_log_message, build_log_error
 
 
-def restock_products():
+def restock_products(correlation_id):
     try:
         products = DiskoverDB.products.find()
         for product in products:
@@ -32,12 +32,12 @@ def restock_products():
                 min, max = 45, 50 
 
             restock_amount = randint(min, max)
-            flow_logger.info(build_log_message(f"Product with id: {product['_id']} restocked {restock_amount} items to {product['instock'] + restock_amount}"))
+            flow_logger.info(build_log_message(correlation_id, f"Product with id: {product['_id']} restocked {restock_amount} items to {product['instock'] + restock_amount}"))
             result = DiskoverDB.products.update_one({"_id": product['_id']}, {"$inc": {"instock": restock_amount}})
 
         return result
     
     except Exception as e:
-        flow_logger.error(build_log_error(e))
+        flow_logger.error(build_log_error(correlation_id, e))
 
 # restock_products()

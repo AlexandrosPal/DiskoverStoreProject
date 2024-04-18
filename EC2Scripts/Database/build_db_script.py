@@ -11,7 +11,7 @@ from .connection_script import client
 # Create new/Connect to a Database
 database = config.get('database', 'database.name')
 DiskoverDB = client[database]
-flow_logger.debug(build_log_message(f"Connected to database: {database}"))
+flow_logger.debug(build_log_message('dev', f"Connected to database: {database}"))
 
 
 # # Create sales collection

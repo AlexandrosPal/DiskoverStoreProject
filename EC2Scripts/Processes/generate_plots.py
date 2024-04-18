@@ -104,15 +104,15 @@ def most_busy_dates():
      plt.savefig('assets/most_busy_dates.png')
 
 
-def generate_plots():
+def generate_plots(correlation_id):
      try:
           most_sold()
-          flow_logger.info(build_log_message('Most sold plot generated'))
+          flow_logger.info(build_log_message(correlation_id, 'Most sold plot generated'))
           most_orders()
-          flow_logger.info(build_log_message('Most orders plot generated'))
+          flow_logger.info(build_log_message(correlation_id, 'Most orders plot generated'))
           revenue_generated()
-          flow_logger.info(build_log_message('Most revenue plot generated'))
+          flow_logger.info(build_log_message(correlation_id, 'Most revenue plot generated'))
           most_busy_dates()
-          flow_logger.info(build_log_message('Most busy dates plot generated'))
+          flow_logger.info(build_log_message(correlation_id, 'Most busy dates plot generated'))
      except Exception as e:
-          flow_logger.error(build_log_error(e))
+          flow_logger.error(build_log_error(correlation_id, e))

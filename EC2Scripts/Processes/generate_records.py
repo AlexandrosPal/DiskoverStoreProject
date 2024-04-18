@@ -39,7 +39,7 @@ def generate(object):
 
         return choice(products)
 
-def get_records():
+def get_records(correlation_id):
     try:
         sales = []
         for _ in range(randint(20, 45)):
@@ -59,8 +59,8 @@ def get_records():
 
             result = DiskoverDB.products.update_one({"_id": product_id}, {"$inc": {"instock": -(quantity)}})
 
-        flow_logger.info(build_log_message(f"Records generated: {sales}"))
+        flow_logger.info(build_log_message(correlation_id, f"Records generated: {sales}"))
         return sales
     
     except Exception as e:
-        flow_logger.error(build_log_error(e))
+        flow_logger.error(build_log_error(correlation_id, e))

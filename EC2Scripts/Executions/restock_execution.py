@@ -6,11 +6,14 @@ from AWS import send_sns
 from Processes import restock_products
 from Utils import config
 
+from uuid import uuid4
 
+
+correlation_id = uuid4()
 sns_arn = config.get('sns', 'sns.arn')
 
 try:
-    restock_products()
-    send_sns(sns_arn, "restock-success")
+    restock_products(correlation_id)
+    send_sns(correlation_id, sns_arn, "restock-success")
 except Exception as e:
-    send_sns(sns_arn, "restock-fail", e)
+    send_sns(correlation_id, sns_arn, "restock-fail", e)

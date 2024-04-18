@@ -16,8 +16,7 @@ from datetime import timedelta
 from Utils import flow_logger, build_log_message, build_log_error
 
 
-
-def fill_report(bucket):
+def fill_report(correlation_id, bucket):
     try:
         dateFrom = (dt.now() - timedelta(days=7)).strftime('%Y/%m/%d')
         dateTo = dt.now().strftime('%Y/%m/%d')
@@ -67,9 +66,9 @@ def fill_report(bucket):
 
 
         pdf.save()
-        flow_logger.info(build_log_message('Report generated'))
+        flow_logger.info(build_log_message(correlation_id, 'Report generated'))
 
         return fileName
     
     except Exception as e:
-        flow_logger.error(build_log_error(e))
+        flow_logger.error(build_log_error(correlation_id, e))
