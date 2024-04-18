@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                sh 'git pull /home/ec2-user/DiskoverProject'
+                sh 'cd /home/ec2-user/DiskoverProject && git pull'
             }
         }
 
