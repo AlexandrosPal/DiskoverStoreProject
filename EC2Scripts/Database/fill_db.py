@@ -3,8 +3,8 @@ from datetime import datetime as dt
 from random import choice, randint
 import csv
 
-
 from build_db_script import DiskoverDB
+
 
 base_path = f"{str(Path('.').absolute())}/data"
 def fill_products():

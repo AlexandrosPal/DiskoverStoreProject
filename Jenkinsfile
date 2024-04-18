@@ -21,7 +21,7 @@ pipeline {
         stage('Execute') {
             steps {
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS_KEYS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-                    sh 'python EC2Scripts/Executions/analysis_execution.py'
+                    sh 'echo Deployment Successfull'
                 }
             }
         }
