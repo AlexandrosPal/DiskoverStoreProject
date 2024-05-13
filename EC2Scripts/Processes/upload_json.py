@@ -9,7 +9,7 @@ from Utils import config
 from Utils import flow_logger, build_log_message, build_log_error
 
 
-def upload_json(correlation_id, file):
+def upload_json(correlation_id: str, file: str) -> bool:
     try:
         file = json.dumps(file, indent=3, default=str)
         file_path = "assets/sales.json"
@@ -22,3 +22,4 @@ def upload_json(correlation_id, file):
     
     except Exception as e:
         flow_logger.error(build_log_error(correlation_id, e))
+        return False

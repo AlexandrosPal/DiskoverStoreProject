@@ -12,7 +12,7 @@ response = sm.get_secret_value(SecretId=secret_name)
 secret = response['SecretString']
 secret = json.loads(secret)
 
-client = MongoClient(secret['CONNECTION_STRING'])
+client: MongoClient = MongoClient(secret['CONNECTION_STRING'])
 DiskoverDB = client.DiskoverDB
 
 
