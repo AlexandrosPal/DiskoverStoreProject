@@ -20,7 +20,7 @@ pipeline {
 
         stage('Type check') {
             steps {
-                sh 'cd .. ; pwd ; ls ; mypy --package DiskoverProject --ignore-missing-imports ; cd ./DiskoverProject'
+                sh 'cd .. ; pwd ; ls ; mypy --package prod-diskover-server --ignore-missing-imports ; cd ./prod-diskover-server'
             }
         }
 
