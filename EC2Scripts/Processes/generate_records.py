@@ -38,6 +38,8 @@ def generate(object):
             products.append(product["_id"])
 
         return choice(products)
+    return False
+
 
 def get_records(correlation_id):
     try:

@@ -13,7 +13,7 @@ import boto3
 
 env = os.environ.get('env')
 
-def send_sns(correlation_id, topic, message, e=None):
+def send_sns(correlation_id: str, topic: str, message: str, e=None):
 
     try:
         sns = boto3.client('sns')

@@ -7,7 +7,7 @@ import boto3
 from Utils import flow_logger, build_log_message, build_log_error
 
 
-def empty_bucket(correlation_id, bucket_name):
+def empty_bucket(correlation_id: str, bucket_name: str):
     try:
         s3 = boto3.resource('s3')
 

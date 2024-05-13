@@ -18,6 +18,12 @@ pipeline {
             }
         }
 
+        stage('Type check') {
+            steps {
+                sh 'cd .. ; mypy --package DiskoverProject --ignore-missing-imports ; cd ./DiskoverProject'
+            }
+        }
+
         stage('Execute') {
             steps {
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS_KEYS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
