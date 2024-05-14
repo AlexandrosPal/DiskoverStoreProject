@@ -20,7 +20,7 @@ pipeline {
 
         stage('Type check') {
             steps {
-                sh 'cd .. ; ~/.local/bin/mypy prod-diskover-server --ignore-missing-imports --config-file ./prod-diskover-server/mypy.ini -v ; cd ./prod-diskover-server'
+                sh 'cd .. ; ~/.local/bin/mypy prod-diskover-server --ignore-missing-imports --config-file ./prod-diskover-server/mypy.ini ; cd ./prod-diskover-server'
             }
         }
 
