@@ -20,7 +20,7 @@ pipeline {
 
         stage('Type check') {
             steps {
-                sh '~/.local/bin/mypy --ignore-missing-imports --config-file mypy.ini -v'
+                sh '~/.local/bin/mypy --ignore-missing-imports --config-file mypy.ini'
             }
         }
 
