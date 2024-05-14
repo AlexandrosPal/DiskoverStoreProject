@@ -9,7 +9,7 @@ from botocore.exceptions import ClientError
 from Utils import flow_logger, build_log_message, build_log_error
 
 
-def upload_file(correlation_id: str, file_name: str, bucket: str, object_name=None) -> str:
+def upload_file(correlation_id: str, file_name: str, bucket: str, object_name=None) -> bool:
 
     if object_name is None:
         object_name = os.path.basename(file_name)
