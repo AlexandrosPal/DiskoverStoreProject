@@ -24,10 +24,10 @@ pipeline {
             }
         }
 
-        stage('Execute') {
+        stage('Deploy') {
             steps {
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS_KEYS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-                    sh 'echo Deployment Successfull'
+                    sh 'python ./LambdaScript/Operations/lambda_deploy.py && python ./LambdaScript/Operations/'
                 }
             }
         }

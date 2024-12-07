@@ -3,6 +3,12 @@ import boto3
 from pymongo import MongoClient
 from botocore.exceptions import ClientError
 
+import os
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
+env = os.environ.get('env')
+
+
 sm = boto3.client('secretsmanager')
 s3 = boto3.client('s3')
 sns = boto3.client('sns')
@@ -28,13 +34,13 @@ def lambda_handler(event, context):
         
         send_success_sns = sns.publish(
             TopicArn="arn:aws:sns:eu-central-1:419022735529:S3-Input", 
-            Message= 'Lambda function succeded'
+            Message=f'{env.upper()}: Lambda function succeded'
         )
         
     except Exception as e:
         send_failed_sns = sns.publish(
             TopicArn="arn:aws:sns:eu-central-1:419022735529:S3-Input", 
-            Message='Lambda function failed'
+            Message=f'{env.upper()}: Lambda function failed'
         )
         print(e)
     
